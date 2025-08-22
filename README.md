@@ -1,5 +1,7 @@
 # Shiori likes reading
 
+![Shiori](assets/Shiori.png)
+
 Shiori is a Deep Research Agent for Machine Learning research papers and blog posts.
 
 ## Installation

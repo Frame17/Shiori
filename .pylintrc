@@ -1,0 +1,29 @@
+[MASTER]
+# A comma-separated list of file extensions that should be checked
+extension=py
+
+[MESSAGES CONTROL]
+# Disable specific messages or categories
+disable=
+    # Disable warnings about missing docstrings
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    # Disable warnings about too broad exception types
+    broad-except,
+    # Other common disables that might be useful
+    too-many-arguments,
+    too-many-instance-attributes,
+    too-few-public-methods
+
+[FORMAT]
+# Maximum line length
+max-line-length=140
+
+[REPORTS]
+# Set the output format
+output-format=text
+# Tells whether to display a full report or only the messages
+reports=yes
+# Python expression which should return a score less than or equal to 10
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)

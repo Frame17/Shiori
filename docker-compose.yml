@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  huggingface-mcp:
+    image: ghcr.io/evalstate/hf-mcp-server:latest
+    container_name: hf-mcp-server
+    ports:
+      - "11112:3000"

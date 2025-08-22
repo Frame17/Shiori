@@ -1,0 +1,18 @@
+# Core agent framework
+smolagents==1.21.0
+smolagents[mcp]
+smolagents[litellm]
+smolagents[telemetry,toolkit]
+ddgs==9.5.4
+
+# Observability
+opentelemetry-sdk>=1.25.0
+opentelemetry-api>=1.25.0
+arize-phoenix
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# For Shiori to look nice
+pyfiglet
+rich

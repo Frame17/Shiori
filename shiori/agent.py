@@ -1,5 +1,6 @@
 import logging
 import os
+from datetime import date
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -56,7 +57,9 @@ def setup_agent() -> CodeAgent:
             api_key=os.environ.get("LITELLM_API_KEY"),
         )
 
-    return CodeAgent(tools=get_all_mcp_tools(), model=model, instructions="")
+    return CodeAgent(
+        tools=get_all_mcp_tools(), model=model, additional_authorized_imports=["json"]
+    )
 
 
 def fetch_research_papers(
@@ -70,7 +73,9 @@ def fetch_research_papers(
     """
     with tracer.start_as_current_span("fetch_papers"):
         prompt = RESEARCH_PAPERS_PROMPT.format(
-            count=count, time_period=TIME_PERIOD_TO_QUERY.get(time_period, "")
+            count=count,
+            time_period=TIME_PERIOD_TO_QUERY.get(time_period, ""),
+            date_now=date.today(),
         )
         return agent.run(prompt)
 

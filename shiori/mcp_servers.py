@@ -36,8 +36,8 @@ def get_all_mcp_tools():
     arxiv_client = get_arxiv_client()
     tools.extend(arxiv_client.get_tools())
 
-    hf_client = get_huggingface_client()
-    tools.extend(hf_client.get_tools())
+    # hf_client = get_huggingface_client()
+    # tools.extend(hf_client.get_tools())
 
     tools.append(DuckDuckGoSearchTool())
     return tools

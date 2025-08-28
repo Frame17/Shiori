@@ -63,7 +63,7 @@ def setup_agent() -> CodeAgent:
 
 
 def fetch_research_papers(
-    agent: CodeAgent, time_period: str = None, count: int = 5
+    agent: CodeAgent, time_period: str = None, count: int = 10
 ) -> str:
     """
     Fetch recent machine learning research papers within a specific time period.
@@ -89,7 +89,8 @@ def fetch_blog_posts(agent: CodeAgent, time_period: str = None) -> str:
     """
     with tracer.start_as_current_span("fetch_blogs"):
         prompt = BLOG_POSTS_PROMPT.format(
-            time_period=TIME_PERIOD_TO_QUERY.get(time_period, "")
+            time_period=TIME_PERIOD_TO_QUERY.get(time_period, ""),
+            date_now=date.today(),
         )
         return agent.run(prompt)
 

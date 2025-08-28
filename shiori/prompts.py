@@ -11,7 +11,7 @@ Steps:
    - Training/fine-tuning methods (RLHF, model alignment, instruction-tuning, distillation)  
    - Efficiency & deployment (inference optimization, quantization, retrieval augmentation)  
 2. Filter out the result that are not {time_period}.
-3. Rank the top 5 papers by the sagnificance, authority and relevance to LLMs/Deep NLP.  
+3. Rank the top {count} papers by the sagnificance, authority and relevance to LLMs/Deep NLP.  
 4. Output them in the following format:
 
 **Title**:
@@ -27,7 +27,20 @@ Guidelines:
 """
 
 BLOG_POSTS_PROMPT = """
-Search for recent blog posts from top AI companies, such as OpenAI, Anthropic, Google DeepMind, 
-Meta, Mistral, DeepSeek, xAI, Alibaba, ByteDance and JetBrains {time_period}.
-Summarize each post in markdown with Title (link) and key points.
+Find and summarize recent blog posts from leading AI companies such as  
+OpenAI, Anthropic, Google DeepMind, Meta, Mistral, DeepSeek, xAI, Alibaba, ByteDance, and JetBrains {time_period}.  
+
+Steps:  
+1. Query the tools for recent and relevant blog posts from the above companies.  
+2. Filter out posts that are not {time_period}.  
+3. Summarize each post in the following format:
+
+**Title**: [Post Title](Post Link)  
+**Source**: Company/Blog Name  
+**Summary**:  
+
+Guidelines:  
+- Always use filtering capabilities of the available tools to narrow down to the most relevant results.  
+- All blog posts MUST be {time_period}. Today's date: {date_now}.  
+- Focus on posts that provide genuine research insights, technical updates, or announcements relevant to ML/LLMs, not marketing fluff.  
 """
